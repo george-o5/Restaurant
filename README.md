@@ -1,75 +1,152 @@
-Bay & Pepper Restaurant Website A responsive restaurant website built with Bootstrap 5 fundamentals, showcasing modern web development practices and component-based design. 🛠️ Tech Stack
+# 🍽️ Bay & Pepper Restaurant Website
 
-HTML5: Semantic markup structure CSS3: Custom styling with CSS variables JavaScript (ES6+): DOM manipulation and interactive functionality Bootstrap 5.3.3: Frontend framework for responsive design Font Awesome 6.4.0: Icon library
+> A responsive restaurant website built with Bootstrap 5 fundamentals, showcasing modern web development practices and component-based design.
 
-📁 Project Structure bay-pepper-restaurant/ ├── index.html # Main homepage ├── menu.html # Menu page ├── styles.css # Custom CSS overrides ├── script.js # JavaScript functionality ├── images/ # Image assets └── README.md # Documentation 🎯 Bootstrap Implementation Grid System
+## 🛠️ Tech Stack
 
-Container: Fluid and fixed-width containers for content structure Row/Col Classes: Responsive layout using Bootstrap's 12-column grid Breakpoints: Mobile-first responsive design with col-lg-6, col-md-6, col-12
+| Technology | Purpose | Version |
+|------------|---------|---------|
+| **HTML5** | Semantic markup structure | Latest |
+| **CSS3** | Custom styling with variables | Latest |
+| **JavaScript** | DOM manipulation & interactivity | ES6+ |
+| **Bootstrap** | Frontend framework | 5.3.3 |
+| **Font Awesome** | Icon library | 6.4.0 |
 
-Navigation
+## 📁 Project Structure
 
-Navbar: Fixed-top navigation with dark theme (navbar-dark bg-dark) Responsive Navigation: Collapsible navbar for mobile devices Brand & Toggle: Logo branding with hamburger menu toggle
+```
+bay-pepper-restaurant/
+│
+├── 📄 index.html          # Main homepage
+├── 📄 menu.html           # Menu page  
+├── 🎨 styles.css          # Custom CSS overrides
+├── ⚡ script.js           # JavaScript functionality
+├── 🖼️  images/            # Image assets
+└── 📋 README.md           # Documentation
+```
 
-Components
+## 🎯 Bootstrap Implementation
 
-Cards: Menu item display using Bootstrap card components Modals: Reservation booking system with form validation Forms: Contact and reservation forms with Bootstrap form classes Buttons: Primary and secondary button styling
+### 🏗️ Grid System
+- **Container System**: Fluid and fixed-width containers for content structure
+- **Responsive Grid**: 12-column layout with `col-lg-6`, `col-md-6`, `col-12`
+- **Mobile-First**: Progressive enhancement from mobile to desktop
 
-Layout Classes
+### 🧭 Navigation
+```html
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+```
+- Fixed-top navigation with dark theme
+- Collapsible hamburger menu for mobile
+- Brand logo with Font Awesome icons
 
-Flexbox Utilities: d-flex, align-items-center, justify-content-center Spacing: Margin and padding utilities (mb-3, py-5, mt-3) Text Utilities: text-center, fw-bold, lead, display-3 Background: bg-dark, bg-light, bg-black
+### 🎴 Components
+| Component | Implementation | Purpose |
+|-----------|---------------|---------|
+| **Cards** | `.card`, `.card-body`, `.card-img-top` | Menu item display |
+| **Modals** | `.modal`, `.modal-dialog` | Reservation system |
+| **Forms** | `.form-control`, `.form-label` | Contact & booking |
+| **Buttons** | `.btn-primary`, `.btn-secondary` | Call-to-actions |
 
-Responsive Features
+### 🎨 Layout Classes
+```css
+/* Bootstrap Utilities Used */
+.d-flex              /* Flexbox container */
+.align-items-center  /* Vertical alignment */
+.justify-content-*   /* Horizontal alignment */
+.mb-3, .py-5, .mt-3  /* Spacing utilities */
+.text-center         /* Text alignment */
+.fw-bold             /* Font weight */
+.bg-dark, .bg-light  /* Background colors */
+```
 
-Visibility Classes: Content adaptation across screen sizes Image Classes: img-fluid for responsive images Card Layout: Responsive card grid with g-4 gutters
+## ⚡ JavaScript Features
 
-💻 JavaScript Features Dynamic Content javascript// Menu rendering from data array function loadMenu() { const menuContainer = document.getElementById("menuItems") menuContainer.innerHTML = menuItems.map(item => <div class="col-lg-4 col-md-6 mb-4"> <div class="card menu-card h-100"> // Card content </div> </div>).join("") } Form Validation
+### 📋 Dynamic Menu Rendering
+```javascript
+const menuItems = [
+    {
+        name: "Chettinad Chicken",
+        price: "₹320",
+        description: "Spicy chicken curry with aromatic spices",
+        image: "images/chettinad-chicken.webp"
+    }
+    // ... more items
+];
 
-Required field validation Date input restrictions Success/error feedback Form reset functionality
+function loadMenu() {
+    const menuContainer = document.getElementById("menuItems");
+    menuContainer.innerHTML = menuItems
+        .map(item => `
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card menu-card h-100">
+                    <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.name}</h5>
+                        <p class="price">${item.price}</p>
+                        <p class="card-text">${item.description}</p>
+                    </div>
+                </div>
+            </div>
+        `)
+        .join("");
+}
+```
 
-Modal Management
+### 📝 Form Validation
+- ✅ Required field validation
+- 📅 Date input restrictions (future dates only)
+- 💬 Success/error feedback alerts
+- 🔄 Form reset functionality
 
-Bootstrap Modal API integration Event handling for show/hide Form submission handling
+### 🎭 Modal Management
+```javascript
+// Bootstrap Modal Integration
+const reserveBtn = document.getElementById("reserveBtn");
+reserveBtn.addEventListener("click", () => {
+    const modal = new bootstrap.Modal(document.getElementById("reservationModal"));
+    modal.show();
+});
+```
 
-🎨 Custom CSS Implementation CSS Variables css:root { --primary-color: #d2691e; --text-dark: #2c1810; } Bootstrap Overrides
+## 🎨 Custom CSS Implementation
 
-Custom button colors Enhanced card styling Modal customization Form focus states
+### 🎯 CSS Variables
+```css
+:root {
+    --primary-color: #d2691e;    /* Chocolate brown */
+    --text-dark: #2c1810;        /* Dark brown text */
+}
+```
 
-Responsive Design css@media (max-width: 768px) { .hero, .menu-header { min-height: 40vh; } } 🚀 Key Bootstrap Features Used Layout & Grid
+### 🔧 Bootstrap Overrides
+```css
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
 
-Container System: .container for centered content Grid Classes: .row, .col-* for flexible layouts Flexbox Utilities: For alignment and distribution
+.btn-primary:hover {
+    background-color: #8b4513;
+    border-color: #8b4513;
+}
+```
 
-Components
+### 📱 Responsive Design
+```css
+@media (max-width: 768px) {
+    .hero, .menu-header {
+        min-height: 40vh;
+    }
+    .menu-card img {
+        height: 150px;
+    }
+}
+```
 
-Navigation Bar: Responsive navbar with brand and toggle Cards: Content containers with images, headers, and bodies Modals: Overlay dialogs for reservations Forms: Styled form controls and validation
+## 🚀 Key Bootstrap Features
 
-Utilities
-
-Spacing: Comprehensive margin/padding system Typography: Text styling and display classes Colors: Background and text color utilities Shadows: Box shadow utilities for depth
-
-🔧 Setup & Usage Installation
-
-Clone the repository Open index.html in a web browser No build process required - static HTML/CSS/JS
-
-Development
-
-Use Live Server or similar for development Bootstrap CDN provides all necessary styles Font Awesome CDN for iconography
-
-📱 Responsive Breakpoints
-
-Small (sm): ≥576px Medium (md): ≥768px Large (lg): ≥992px Extra Large (xl): ≥1200px
-
-🎯 Bootstrap Best Practices Implemented
-
-Mobile-First Approach: Design starts with mobile, scales up Semantic HTML: Proper use of Bootstrap's semantic classes Accessibility: Form labels, ARIA attributes, keyboard navigation Performance: CDN delivery, minimal custom CSS Maintainability: Consistent class naming and structure
-
-📋 Form Implementation Bootstrap Form Classes
-
-.form-control for input styling .form-label for accessible labels .form-select for dropdown menus .was-validated for validation states
-
-Validation Features
-
-HTML5 validation attributes JavaScript validation logic Custom error messaging Bootstrap validation styling
-
-🌐 Browser Compatibility
-
-Modern browsers supporting ES6+ Bootstrap 5 browser support Mobile-responsive across all devices Progressive enhancement approach
+### 📐 Layout & Grid
+- **Container System**: `.container` for centered, responsive content
+- **Grid Classes**: `.row`, `.col-*` for flexible, responsive layouts
+- **
