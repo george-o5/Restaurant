@@ -1,0 +1,85 @@
+
+:root {
+    --primary-color: #d2691e;
+    --text-dark: #2c1810;
+  }
+  
+  body {
+    padding-top: 56px;
+  }
+  
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #8b4513;
+    border-color: #8b4513;
+  }
+  
+  
+  .hero,
+  .menu-header {
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+    color: white;
+  }
+  
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80");
+  }
+  
+  .menu-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80");
+    min-height: 40vh;
+  }
+  
+  
+  .menu-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .menu-card .price {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  
+  
+  .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .modal-header .btn-close {
+    filter: invert(1);
+  }
+  
+  
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(210, 105, 30, 0.25);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .hero,
+    .menu-header {
+      min-height: 40vh;
+    }
+    .menu-card img {
+      height: 150px;
+    }
+  }
+  
